@@ -19,11 +19,13 @@ What things you need to install the software and how to install them
 
 
 ### Installing
-Clone the repository
+**Clone the repository**
 
 ```bash
 git clone git@github.com:piiq/helyx-os-for-mac.git
 ```
+
+**Share folder with Docker engine**
 
 ⚠️ Before you do your the first launch of the container you should make the ofuser folder accessible to Docker.
 
@@ -41,6 +43,9 @@ git clone git@github.com:piiq/helyx-os-for-mac.git
 
 In order to make a folder available for Docker go to Docker Preferences -> Resources -> FILE SHARING and add the mentioned forder.
 
+⚠️ The `ofuser` folder is your default shared folder for this container. If you want any files to be accessible inside the container - place them into `ofuser`. Your container settings will also be stored there and it will be the path where HELYX-OS will be installed.
+If you would like to reinstall everything from scratch - delete everything from the `ofuser` folder.
+
 ## Running the application
 
 Fire up containers and HELYX-OS GUI. Run the `run.sh` script
@@ -56,6 +61,7 @@ After you are done working with the app - stop the contaiters. Run the `stop.sh`
 ```
 
 If you want to access the interactive console inside the container - run the `app-run-shell.sh` script
+
 ## Acknowledgments and licenses
 
 * The scipt files created for this project are licensed under the DO WHATEVER YOU WANT TO PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
