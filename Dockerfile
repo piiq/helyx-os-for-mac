@@ -46,5 +46,5 @@ USER ofuser
 RUN echo ". /opt/openfoam4/etc/bashrc" > .bashrc
 
 # Download and unpack HELYX-OS 2.4 distribution
-RUN wget https://github.com/ENGYS/HELYX-OS/releases/download/v2.4.0/HELYX-OS-2.4.0-linux-x86_64.tar.bz2
+RUN https://github.com/piiq/helyx-os-for-mac/releases/download/0.2.0/HELYX-OS-2.4.0-linux-x86_64.tar.bz2
 RUN tar -xjf /home/ofuser/HELYX-OS-2.4.0-linux-x86_64.tar.bz2 --directory /home/ofuser/
