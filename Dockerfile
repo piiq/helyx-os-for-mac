@@ -1,36 +1,50 @@
 # Get the base image file.
-FROM openfoamplus/of_v1606plus_centos66
+FROM ubuntu:xenial
 
 # Mention Dockerfile maintainers
-MAINTAINER pll_llq et al.
+MAINTAINER pll_llq
 
 # Set workdir for docker commands execution
 WORKDIR /home/ofuser
 
-# Install updates and relevant packages
-# Note that because the parent container has CentOS
-# yum is used instead of apt (aptitude)
+# RUN groupadd -g ofuser
+RUN useradd -ms /bin/bash ofuser
+
+# # Install updates and relevant packages
 RUN set -x && \
-	yum -y update && \
-	yum -y upgrade && \
-	yum -y install wget
-	# 
-	# yum -y install vtk6 && \
-	# yum -y install libvtk6-java && \
-	# yum -y install openjdk-8-jre && \
-	# yum -y install openjdk-8-jdk && \
-	# yum -y install libglu1-mesa
+	apt-get -y update && \
+	apt-get -y upgrade && \
+	apt-get -y install software-properties-common && \
+	apt-get -y install locales && \
+	apt-get -y install apt-transport-https && \
+	apt-get -y install wget bzip2 zip && \
+	# install packages that make HELYX-OS work
+	add-apt-repository ppa:openjdk-r/ppa  && \
+	apt-get -y update && \
+	apt-get -y install vtk6 libvtk6-java openjdk-7-jre openjdk-7-jdk libglu1-mesa libgl1-mesa-glx && \
+	# Install OpenFOAM 4.1
+	add-apt-repository http://dl.openfoam.org/ubuntu && \
+	sh -c "wget -O - http://dl.openfoam.org/gpg.key | apt-key add -" && \
+	apt-get update && \
+	apt-get -y install openfoam4
 
-# Set up env variables for ParaFoam execution
-RUN echo 'export LD_LIBRARY_PATH=$WM_THIRD_PARTY_DIR/platforms/linux64Gcc/qt-4.8.5/lib:$LD_LIBRARY_PATH' >> /home/ofuser/.setting && \
-	echo 'export DOCKER_OPENFOAM_PATH="/opt/OpenFOAM/OpenFOAM-v1606+/etc/bashrc"' >> /home/ofuser/.setting
+# Create and change folder permissions
+RUN mkdir /home/ofuser/Engys && \
+	chown -R ofuser:ofuser /home/ofuser && \
+	cd /home/ofuser
 
-# Prepare folder structure and download helyx-os
-RUN wget https://github.com/piiq/helyx-os-for-mac/releases/download/0.1.0/helyx-os-2.4.0-centos66.tar.gz
-# Unpack helyx-os and change folder permissions
-RUN	cd /home/ofuser && tar -xzf helyx-os-2.4.0-centos66.tar.gz --directory . && \
-	chown -R ofuser:ofuser /home/ofuser
-# Cleanup the archive
-RUN	rm /home/ofuser/helyx-os-2.4.0-centos66.tar.gz
+# Set the locale
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
 
-# RUN ln -s /opt/OpenFOAM/OpenFOAM-v1606+/* /opt/OpenFOAM
+# change user for further actions
+USER ofuser
+
+# Add OpenFOAM 4.1 to local user path
+RUN echo ". /opt/openfoam4/etc/bashrc" > .bashrc
+
+# Download and unpack HELYX-OS 2.4 distribution
+RUN wget https://github.com/ENGYS/HELYX-OS/releases/download/v2.4.0/HELYX-OS-2.4.0-linux-x86_64.tar.bz2
+RUN tar -xjf /home/ofuser/HELYX-OS-2.4.0-linux-x86_64.tar.bz2 --directory /home/ofuser/

@@ -6,13 +6,10 @@ services:
     - username="$$USER"
     - user="$$(id -u)"
     - home="$${1:-$HOME}"
-    # - imageName="openfoamplus/of_v1606plus_centos66"
-    - containerName="cfd_apps"
+    - containerName="cfd_apps_setup"
     - DISPLAY=host.docker.internal:0
-    # - displayVar="$$DISPLAY"
     entrypoint: /bin/sh
     stdin_open: true
     tty: true
     volumes:
-    # - ./Helyx-OS:/home/ofuser/Engys
-    - ./workingDir:/home/ofuser/workingDir
+    - ./ofuser:/home/ofuser
