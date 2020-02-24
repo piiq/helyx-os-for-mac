@@ -1,0 +1,15 @@
+version: '3'
+services:
+  cfd_apps:
+    build: .
+    environment:
+    - username="$$USER"
+    - user="$$(id -u)"
+    - home="$${1:-$HOME}"
+    - containerName="cfd_apps_setup"
+    - DISPLAY=host.docker.internal:0
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./Helyx-OS:/home/ofuser/Engys
