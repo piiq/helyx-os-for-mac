@@ -6,7 +6,7 @@ A container that bundles HELYX-OS v2.4.0 and OpenFOAM 4.1 to be used on OSX via 
 
 [HELYX-OS](http://engys.com/products/helyx-os) is an open-source, powerful and user friendly GUI for OpenFOAM® CFD engine. HELYX-OS is developed and maintained by [ENGYS](http://engys.com/)
 
-As of now (Feb 2020) precompiled binaries for HELYX-OS are only available for Linux users. Luckily Mac users can leverage X11 to work with HELYX-OS from a Linux container using X11. These instructions will get you up and running on your local machine.
+As of now (Feb 2020) precompiled binaries for HELYX-OS are only available for Linux users. Luckily Mac users can leverage X11 to work with HELYX-OS from a Linux container. These instructions will get you up and running on your local machine.
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ If you want to access the interactive console inside the container - run the `ap
 
 ## Acknowledgments and licenses
 
-* The scipt files created for this project are licensed under the DO WHATEVER YOU WANT TO PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
+* The script files created for this project are licensed under the DO WHATEVER YOU WANT TO PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
 * HELYX-OS, OpenFOAM, Docker and supporing tools are owned and licensed by their respective authors and owners.
 
 ## Disclaimers
