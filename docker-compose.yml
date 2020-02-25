@@ -12,4 +12,4 @@ services:
     stdin_open: true
     tty: true
     volumes:
-    - ./ofuser:/home/ofuser
+    - ./workDir:/home/ofuser/workDir
