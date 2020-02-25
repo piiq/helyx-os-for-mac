@@ -1,5 +1,7 @@
 # HELYX-OS container for OSX
 
+[![HELYX-OS on Mac](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/helyx-os-on-mac.jpg)](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/helyx-os-on-mac.jpg)
+
 A container that bundles HELYX-OS v2.4.0 and OpenFOAM 4.1 to be used on OSX via X11.
 
 ## Getting Started
@@ -27,7 +29,7 @@ git clone git@github.com:piiq/helyx-os-for-mac.git
 
 **Share folder with Docker engine**
 
-⚠️ Before you do your the first launch of the container you should make the ofuser folder accessible to Docker.
+⚠️ Before you do your the first launch of the container you should make the `workDir` folder accessible to Docker.
 
 ```
 ├── helyx-os-for-mac
@@ -38,13 +40,14 @@ git clone git@github.com:piiq/helyx-os-for-mac.git
     ├── app-run.sh
     ├── app-stop.sh
     ├── docker-compose.yml
-    └── ofuser <- make this folder available for Docker
+    └── workDir <- make this folder available for Docker
 ```
 
 In order to make a folder available for Docker go to Docker Preferences -> Resources -> FILE SHARING and add the mentioned forder.
 
-⚠️ The `ofuser` folder is your default shared folder for this container. If you want any files to be accessible inside the container - place them into `ofuser`. Your container settings will also be stored there and it will be the path where HELYX-OS will be installed.
-If you would like to reinstall everything from scratch - delete everything from the `ofuser` folder.
+[![Docker file sharing](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/docker-file-sharing.jpg)](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/docker-file-sharing.jpg)
+
+⚠️ The `workDir` folder is your default shared folder for this container. If you want any files to be accessible inside the container - place them into `workDir`. 
 
 ## Running the application
 
