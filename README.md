@@ -21,13 +21,14 @@ What things you need to install the software and how to install them
 
 
 ### Installing
-**Clone the repository**
+
+**Clone the repository.**
 
 ```bash
 git clone git@github.com:piiq/helyx-os-for-mac.git
 ```
 
-**Share folder with Docker engine**
+**Share folder with Docker engine.**
 
 ⚠️ Before you do your the first launch of the container you should make the `workDir` folder accessible to Docker.
 
@@ -47,7 +48,15 @@ In order to make a folder available for Docker go to Docker Preferences -> Resou
 
 [![Docker file sharing](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/docker-file-sharing.jpg)](https://raw.githubusercontent.com/piiq/helyx-os-for-mac/master/docs/docker-file-sharing.jpg)
 
-⚠️ The `workDir` folder is your default shared folder for this container. If you want any files to be accessible inside the container - place them into `workDir`. 
+⚠️ The `workDir` folder is your default shared folder for this container. If you want any files to be accessible inside the container - place them into `workDir`.
+
+**Setup X11.**
+
+If you have just installed X11 you need to enable it to be used for 3D viewing of the remote GUI. Execute the following commant in you terminal.
+
+```bash
+defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+```
 
 ## Running the application
 
@@ -67,8 +76,9 @@ If you want to access the interactive console inside the container - run the `ap
 
 ## Acknowledgments and licenses
 
-* The script files created for this project are licensed under the DO WHATEVER YOU WANT TO PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
-* HELYX-OS, OpenFOAM, Docker and supporing tools are owned and licensed by their respective authors and owners.
+- The script files created for this project are licensed under the DO WHATEVER YOU WANT TO PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
+- HELYX-OS, OpenFOAM, Docker and supporing tools are owned and licensed by their respective authors and owners.
 
 ## Disclaimers
+
 This project is not approved or endorsed by neither [OpenCFD Limited](https://www.openfoam.com) nor [Engys](http://engys.com/)
