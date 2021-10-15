@@ -17,7 +17,7 @@ What things you need to install the software and how to install them
 
 - `Git` - if you don't have git installed, here's a good tutorial that lists several ways to get Git for OSX https://www.atlassian.com/git/tutorials/install-git
 - `Docker` - get docker from https://docs.docker.com/docker-for-mac/install
-- `x11` - get X11 from https://www.xquartz.org/
+- `x11` - get the latest version of X11 from https://www.xquartz.org/ (as of Oct 15 2021 this was verion 2.8.1)
 
 
 ### Installing
@@ -34,14 +34,14 @@ git clone git@github.com:piiq/helyx-os-for-mac.git
 
 ```
 ├── helyx-os-for-mac
-    ├── Dockerfile
-    ├── LICENSE
-    ├── README.md
-    ├── app-run-shell.sh
-    ├── app-run.sh
-    ├── app-stop.sh
-    ├── docker-compose.yml
-    └── workDir <- make this folder available for Docker
+        ├── Dockerfile
+        ├── LICENSE
+        ├── README.md
+        ├── app-run-shell.sh
+        ├── app-run.sh
+        ├── app-stop.sh
+        ├── docker-compose.yml
+        └── workDir <- make this folder available for Docker
 ```
 
 In order to make a folder available for Docker go to Docker Preferences -> Resources -> FILE SHARING and add the mentioned forder.
