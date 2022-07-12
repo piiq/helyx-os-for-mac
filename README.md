@@ -55,7 +55,7 @@ In order to make a folder available for Docker go to Docker Preferences -> Resou
 If you have just installed X11 you need to enable it to be used for 3D viewing of the remote GUI. Execute the following commant in you terminal.
 
 ```bash
-defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+defaults write org.xquartz.X11 enable_iglx -bool true
 ```
 
 ## Running the application
