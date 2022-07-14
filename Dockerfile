@@ -17,13 +17,13 @@ RUN set -x && \
     apt-get -y install wget bzip2 zip
 
 # Install OpenFOAM 4.1
-RUN	add-apt-repository http://dl.openfoam.org/ubuntu && \
+RUN add-apt-repository http://dl.openfoam.org/ubuntu && \
     sh -c "wget -O - http://dl.openfoam.org/gpg.key | apt-key add -" && \
     apt-get update && \
     apt-get -y install openfoam4
 
 # install packages that make HELYX-OS work
-RUN	add-apt-repository ppa:openjdk-r/ppa  && \
+RUN add-apt-repository ppa:openjdk-r/ppa  && \
     apt-get -y update && \
     apt-get -y install vtk6 libvtk6-java openjdk-8-jre openjdk-8-jdk libglu1-mesa libgl1-mesa-glx
 
