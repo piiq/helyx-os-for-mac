@@ -1,7 +1,10 @@
-version: '3'
+version: '3.9'
 services:
   cfd_apps:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: helyx-os
     environment:
     - username="$$USER"
     - user="$$(id -u)"
